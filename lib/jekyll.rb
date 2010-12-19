@@ -3,6 +3,8 @@ $:.unshift File.dirname(__FILE__)     # For use/testing when no gem is installed
 # rubygems
 require 'rubygems'
 
+gem 'activesupport', '~>2.1.0'
+
 # core
 require 'fileutils'
 require 'time'

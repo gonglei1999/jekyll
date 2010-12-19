@@ -38,6 +38,7 @@ module Jekyll
       
       if self.config['sass']
         begin
+          gem 'haml', '~>2.0.0'
           require 'sass'
           self.sass = true
           puts 'Using Sass for CSS generation'
@@ -48,12 +49,14 @@ module Jekyll
       
       if self.config['haml']
         begin
+          gem 'haml', '~>2.0.0'
           require 'haml'
           require 'jekyll/haml_helpers'
           helpers = File.join(source, '_helpers.rb')
           require helpers if File.exist?(helpers)
           puts 'Enabled Haml'
         rescue LoadError
+          puts $!.inspect
           puts 'You must have the haml gem installed first'
         end
       end
